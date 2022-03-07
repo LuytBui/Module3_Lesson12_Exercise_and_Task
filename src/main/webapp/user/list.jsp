@@ -4,13 +4,20 @@
 <html>
 <head>
     <title>User Management Application</title>
+    <style>
+        a button {
+            margin: 10px 10px;
+        }
+    </style>
 </head>
 <body>
 <center>
     <h1>User Management</h1>
-    <h2>
-        <a href="/users?action=create">Add New User</a>
-    </h2>
+        <a href="/users?action=create"><button>Add New User</button></a>
+        <br>
+        <a href="/users?action=search-by-country"><button>Search User By Country</button></a>
+        <br>
+        <a href="/users"><button>Back</button></a>
 </center>
 <div align="center">
     <table border="1" cellpadding="5">
