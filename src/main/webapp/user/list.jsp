@@ -15,7 +15,9 @@
     <h1>User Management</h1>
         <a href="/users?action=create"><button>Add New User</button></a>
         <br>
-        <a href="/users?action=search-by-country"><button>Search User By Country</button></a>
+        <a href="/users?action=search-by-country"><button>Search Users By Country</button></a>
+        <br>
+        <a href="/users?action=sort-by-name"><button>Sort Users By Name</button></a>
         <br>
         <a href="/users"><button>Back</button></a>
 </center>

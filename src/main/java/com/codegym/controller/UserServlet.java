@@ -67,6 +67,9 @@ public class UserServlet extends HttpServlet {
                 case "search-by-country":
                     showSearchByCountry(request, response);
                     break;
+                case "sort-by-name":
+                    sortByName(request, response);
+                    break;
                 default:
                     listUser(request, response);
                     break;
@@ -76,14 +79,22 @@ public class UserServlet extends HttpServlet {
         }
     }
 
+    private void sortByName(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+        List<User> users = userDAO.listUsersSortByName();
+        request.setAttribute("listUser", users);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/list.jsp");
+        requestDispatcher.forward(request, response);
+    }
+
     private void searchByCountry(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
-            String searchCountry = request.getParameter("country");
-            List<User> result = userDAO.selectUserByCountry(searchCountry);
+        String searchCountry = request.getParameter("country");
+        List<User> result = userDAO.selectUserByCountry(searchCountry);
 
-            request.setAttribute("listUser", result);
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/list.jsp");
-            requestDispatcher.forward(request, response);
+        request.setAttribute("listUser", result);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/list.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     private void showSearchByCountry(HttpServletRequest request, HttpServletResponse response)
