@@ -71,18 +71,6 @@ public class UserServlet extends HttpServlet {
                 case "sort-by-name":
                     sortByName(request, response);
                     break;
-<<<<<<< HEAD
-                case "permission":
-                    addUserPermision(request, response);
-                    break;
-                case "test-without-tran":
-                    testWithoutTran(request, response);
-                    break;
-                case "test-use-tran":
-                    testUseTran(request, response);
-                    break;
-=======
->>>>>>> done_lesson13_exercise_2
                 default:
                     listUser(request, response);
                     break;
@@ -90,14 +78,6 @@ public class UserServlet extends HttpServlet {
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
-    }
-
-    private void testUseTran(HttpServletRequest request, HttpServletResponse response) {
-        userDAO.insertUpdateUseTransaction();
-    }
-
-    private void testWithoutTran(HttpServletRequest request, HttpServletResponse response) {
-        userDAO.insertUpdateWithoutTransaction();
     }
 
     private void sortByName(HttpServletRequest request, HttpServletResponse response)

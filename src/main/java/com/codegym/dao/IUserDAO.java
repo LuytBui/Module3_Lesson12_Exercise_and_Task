@@ -20,13 +20,11 @@ public interface IUserDAO {
     User getUserById(int id);
 
     void insertUserStore(User user) throws SQLException;
-<<<<<<< HEAD
 
     void addUserTransaction(User user, int[] permisions);
 
     public void insertUpdateWithoutTransaction();
 
     public void insertUpdateUseTransaction();
-=======
->>>>>>> done_lesson13_exercise_2
+
 }
