@@ -80,7 +80,6 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-    }
 
     private void sortByName(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
