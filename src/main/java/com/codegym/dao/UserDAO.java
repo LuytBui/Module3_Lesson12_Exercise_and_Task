@@ -22,21 +22,6 @@ public class UserDAO implements IUserDAO {
     private static final String SELECT_USER_BY_COUNTRY = "select id,name,email,country from users where country =?";
 
 
-
-    // Exercises On Transactions
-    private static final String SQL_INSERT = "INSERT INTO EMPLOYEE (NAME, SALARY, CREATED_DATE) VALUES (?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE EMPLOYEE SET SALARY=? WHERE NAME=?";
-    private static final String SQL_TABLE_CREATE = "CREATE TABLE EMPLOYEE"
-            + "("
-            + " ID serial,"
-            + " NAME varchar(100) NOT NULL,"
-            + " SALARY numeric(15, 2) NOT NULL,"
-            + " CREATED_DATE timestamp,"
-            + " PRIMARY KEY (ID)"
-            + ")";
-    private static final String SQL_TABLE_DROP = "DROP TABLE IF EXISTS EMPLOYEE";
-    // << Exercises On Transactions
-
     public UserDAO() {
     }
 
