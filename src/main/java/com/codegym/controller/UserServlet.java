@@ -170,7 +170,8 @@ public class UserServlet extends HttpServlet {
         String country = request.getParameter("country");
 
         User user = new User(id, name, email, country);
-        userDAO.updateUser(user);
+//        userDAO.updateUser(user);
+        userDAO.updateUserUsingProcedure(user);
         request.setAttribute("user", user);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
         dispatcher.forward(request, response);
@@ -179,7 +180,8 @@ public class UserServlet extends HttpServlet {
     private void deleteUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
-        userDAO.deleteUser(id);
+//        userDAO.deleteUser(id);
+        userDAO.deleteUserUsingProcedure(id);
 
         List<User> listUser = userDAO.selectAllUsers();
         request.setAttribute("listUser", listUser);

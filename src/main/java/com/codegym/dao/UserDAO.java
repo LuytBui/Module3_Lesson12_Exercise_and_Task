@@ -22,6 +22,7 @@ public class UserDAO implements IUserDAO {
     private static final String SELECT_USER_BY_COUNTRY = "select id,name,email,country from users where country =?";
 
 
+
     public UserDAO() {
     }
 
@@ -167,6 +168,18 @@ public class UserDAO implements IUserDAO {
         return rowDeleted;
     }
 
+    public boolean deleteUserUsingProcedure(int id) throws SQLException {
+        boolean rowDeleted;
+
+        String SQL = "{call delete_user (?)}";
+
+        try (Connection connection = getConnection(); CallableStatement cstmt = getConnection().prepareCall(SQL);) {
+            cstmt.setInt(1, id);
+            rowDeleted = cstmt.executeUpdate() > 0;
+        }
+        return rowDeleted;
+    }
+
     public boolean updateUser(User user) throws SQLException {
         boolean rowUpdated;
         try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);) {
@@ -176,6 +189,21 @@ public class UserDAO implements IUserDAO {
             statement.setInt(4, user.getId());
 
             rowUpdated = statement.executeUpdate() > 0;
+        }
+        return rowUpdated;
+    }
+
+    @Override
+    public boolean updateUserUsingProcedure(User user) throws SQLException {
+        boolean rowUpdated;
+        String SQL = "{call update_user (?, ?, ?, ?)}";
+
+        try (Connection connection = getConnection(); CallableStatement cstmt = getConnection().prepareCall(SQL);) {
+            cstmt.setString(2, user.getName());
+            cstmt.setString(3, user.getEmail());
+            cstmt.setString(4, user.getCountry());
+            cstmt.setInt(1, user.getId());
+            rowUpdated = cstmt.executeUpdate() > 0;
         }
         return rowUpdated;
     }
