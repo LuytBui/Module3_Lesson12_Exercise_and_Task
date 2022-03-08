@@ -71,6 +71,7 @@ public class UserServlet extends HttpServlet {
                 case "sort-by-name":
                     sortByName(request, response);
                     break;
+<<<<<<< HEAD
                 case "permission":
                     addUserPermision(request, response);
                     break;
@@ -80,6 +81,8 @@ public class UserServlet extends HttpServlet {
                 case "test-use-tran":
                     testUseTran(request, response);
                     break;
+=======
+>>>>>>> done_lesson13_exercise_2
                 default:
                     listUser(request, response);
                     break;
@@ -95,12 +98,6 @@ public class UserServlet extends HttpServlet {
 
     private void testWithoutTran(HttpServletRequest request, HttpServletResponse response) {
         userDAO.insertUpdateWithoutTransaction();
-    }
-
-    private void addUserPermision(HttpServletRequest request, HttpServletResponse response) {
-        User user = new User("quan", "quan.nguyen@codegym.vn", "vn");
-        int[] permision = {1, 2, 4};
-        userDAO.addUserTransaction(user, permision);
     }
 
     private void sortByName(HttpServletRequest request, HttpServletResponse response)

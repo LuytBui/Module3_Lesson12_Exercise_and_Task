@@ -22,6 +22,7 @@ public class UserDAO implements IUserDAO {
     private static final String SELECT_USER_BY_COUNTRY = "select id,name,email,country from users where country =?";
 
 
+<<<<<<< HEAD
     // Exercises On Transactions
     private static final String SQL_INSERT = "INSERT INTO EMPLOYEE (NAME, SALARY, CREATED_DATE) VALUES (?,?,?)";
     private static final String SQL_UPDATE = "UPDATE EMPLOYEE SET SALARY=? WHERE NAME=?";
@@ -37,6 +38,8 @@ public class UserDAO implements IUserDAO {
     // << Exercises On Transactions
 
 
+=======
+>>>>>>> done_lesson13_exercise_2
     public UserDAO() {
     }
 
@@ -122,7 +125,6 @@ public class UserDAO implements IUserDAO {
     }
 
     public List<User> selectAllUsers() {
-
         // using try-with-resources to avoid closing resources (boiler plate code)
         List<User> users = new ArrayList<>();
         // Step 1: Establishing a Connection
@@ -237,6 +239,7 @@ public class UserDAO implements IUserDAO {
         }
     }
 
+<<<<<<< HEAD
     @Override
     public void addUserTransaction(User user, int[] permisions) {
         Connection conn = null;
@@ -380,6 +383,8 @@ public class UserDAO implements IUserDAO {
         }
     }
 
+=======
+>>>>>>> done_lesson13_exercise_2
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
             if (e instanceof SQLException) {
