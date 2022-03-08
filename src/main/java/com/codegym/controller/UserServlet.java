@@ -74,6 +74,9 @@ public class UserServlet extends HttpServlet {
                 case "permission":
                     addUserPermision(request, response);
                     break;
+                case "test-without-tran":
+                    testWithoutTran(request, response);
+                    break;
                 default:
                     listUser(request, response);
                     break;
@@ -83,6 +86,9 @@ public class UserServlet extends HttpServlet {
         }
     }
 
+    private void testWithoutTran(HttpServletRequest request, HttpServletResponse response) {
+        userDAO.insertUpdateWithoutTransaction();
+    }
 
     private void addUserPermision(HttpServletRequest request, HttpServletResponse response) {
         User user = new User("quan", "quan.nguyen@codegym.vn", "vn");
